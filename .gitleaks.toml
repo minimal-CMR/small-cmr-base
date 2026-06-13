@@ -1,0 +1,13 @@
+# Configurazione GitLeaks per il repo small-cmr-base.
+# Estende il ruleset di default ed esclude i file di test che contengono
+# secret fittizi (dummy keys per pytest, non sensibili).
+
+[extend]
+useDefault = true
+
+[allowlist]
+description = "Test fixtures contengono secret di test, non veri secret."
+paths = [
+  '''backend/tests/.*\.py$''',
+  '''backend/tests/.*\.db$''',
+]
